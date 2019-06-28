@@ -26,7 +26,7 @@ use num::pow;
 pub fn mean(nums: &[f64]) -> Option<f64> {
     //unimplemented!("no mean yet")
     //Some(1.3_f64)
-    if nums.len() == 0 {
+    if nums.is_empty() {
         return Some(0.0_f64);
     }
     let mut my_mean: f64 = 0.0;
@@ -56,7 +56,7 @@ fn test_mean_1() {
 /// assert_eq!(Some(0.0), stddev(&[1.0, 1.0]));
 /// ```
 pub fn stddev(nums: &[f64]) -> Option<f64> {
-    if nums.len() == 0 {
+    if nums.is_empty() {
         return None;
     }
     // stddev of a single element is 0
@@ -70,7 +70,7 @@ pub fn stddev(nums: &[f64]) -> Option<f64> {
     for x in nums {
         sum += pow(x - mean, 2);
     }
-    sum = sum / len;
+    sum /= len;
     sum = sum.sqrt();
     Some(sum)
 }
@@ -127,7 +127,7 @@ pub fn median(nums: &[f64]) -> Option<f64> {
 /// assert_eq!(Some(5.0), l2(&[-3.0, 4.0]));
 /// ```
 pub fn l2(nums: &[f64]) -> Option<f64> {
-    if nums.len() == 0 {
+    if nums.is_empty() {
         return Some(0.0_f64);
     }
     let mut sum = 0.0_f64;
