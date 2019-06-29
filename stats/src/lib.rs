@@ -75,6 +75,11 @@ pub fn stddev(nums: &[f64]) -> Option<f64> {
     Some(sum)
 }
 
+#[test]
+fn test_stddev_1() {
+    assert_eq!(Some(0.0), stddev(&[1.0]));
+}
+
 /// Median value of input values, taking the value closer
 /// to the beginning to break ties. The median
 /// of an empty list is undefined.
@@ -88,6 +93,10 @@ pub fn stddev(nums: &[f64]) -> Option<f64> {
 /// ```
 /// # use stats::*;
 /// assert_eq!(Some(0.0), median(&[0.0, 0.5, -1.0, 1.0]));
+/// ```
+/// ```
+/// # use stats::*;
+/// assert_eq!(Some(6.0), median(&[6.0, 2.0, 20.5]));
 /// ```
 pub fn median(nums: &[f64]) -> Option<f64> {
     // Make a sorted copy of the input floats.
@@ -111,6 +120,16 @@ pub fn median(nums: &[f64]) -> Option<f64> {
         ret = nums[odd] as f64;
     }
     Some(ret)
+}
+
+#[test]
+fn test_median_odd() {
+    assert_eq!(Some(6.0), median(&[6.0, 2.0, 20.5]));
+}
+
+#[test]
+fn test_median_even() {
+    assert_eq!(Some(6.0), median(&[6.0, 2.0, 20.5, 7.25]));
 }
 
 /// L2 norm (Euclidean norm) of input values. The L2
@@ -138,4 +157,9 @@ pub fn l2(nums: &[f64]) -> Option<f64> {
     }
     sum = sum.sqrt();
     Some(sum)
+}
+
+#[test]
+fn test_l2_1() {
+    assert_eq!(Some(2.0), l2(&[2.0]));
 }
