@@ -59,11 +59,7 @@ pub fn stddev(nums: &[f64]) -> Option<f64> {
     if nums.is_empty() {
         return None;
     }
-    // stddev of a single element is 0
-    else if nums.len() == 1 {
-        return Some(0.0_f64);
-    }
-    let len = (nums.len() - 1) as f64;
+    let len = nums.len() as f64;
     let mean = mean(nums).unwrap();
     let mut sum = 0.0_f64;
     // sum of squares
@@ -77,7 +73,7 @@ pub fn stddev(nums: &[f64]) -> Option<f64> {
 
 #[test]
 fn test_stddev_1() {
-    assert_eq!(Some(0.0), stddev(&[1.0]));
+    assert_eq!(Some(0.0), stddev(&[2.0]));
 }
 
 /// Median value of input values, taking the value closer
