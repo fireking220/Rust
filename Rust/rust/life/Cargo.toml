@@ -1,9 +1,0 @@
-[package]
-name = "life"
-version = "0.1.0"
-authors = ["Scott Patterson <sip2@pdx.edu>"]
-edition = "2018"
-
-[dependencies]
-ndarray = "0.12.1"
-rand = "0.7.0"
